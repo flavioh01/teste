@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Diário de um Banana</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Biblioteca Diário de um Banana</h1>
+        <div class="menu-hamburguer" onclick="toggleMenu()">&#9776;</div>
+        <nav id="menu-cascata">
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="profile.html">Perfil</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+        <div id="login-logout">
+            <a href="login.html" id="login-link">Login</a>
+            <a href="logout.html" id="logout-link" style="display: none;">Logout</a>
+        </div>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Buscar livros..." oninput="searchBooks()">
+    </div>
+
+    <button onclick="toggleColorScheme()">Mudar Cor</button>
+
+    <main>
+        <div id="livros" class="livros">
+            <!-- Livros serão carregados aqui dinamicamente -->
+        </div>
+    </main>
+
+    <footer>
+        <p>Flavio e Sara</p>
+    </footer>
+
+    <!-- Modal do Livro -->
+    <div id="book-modal" class="modal">
+        <span class="close" onclick="closeBook()">&times;</span>
+        <div id="book-content" class="modal-content">
+            <!-- Conteúdo do livro aparecerá aqui -->
+        </div>
+    </div>
+
+    <!-- Modal de Avaliação -->
+    <div id="rating-modal" class="modal">
+        <span class="close" onclick="closeRating()">&times;</span>
+        <div class="modal-content">
+            <h2>Avalie este Livro</h2>
+            <div id="rating-stars" class="rating-stars">
+                <span onclick="setRating(1)">&#9733;</span>
+                <span onclick="setRating(2)">&#9733;</span>
+                <span onclick="setRating(3)">&#9733;</span>
+                <span onclick="setRating(4)">&#9733;</span>
+                <span onclick="setRating(5)">&#9733;</span>
+            </div>
+            <p id="rating-feedback"></p>
+        </div>
+    </div>
+
+    <!-- Modal de Comentários -->
+    <div id="comments-modal" class="modal">
+        <span class="close" onclick="closeComments()">&times;</span>
+        <div class="modal-content">
+            <h2>Comentários</h2>
+            <div id="comments-list">
+                <!-- Comentários serão carregados aqui -->
+            </div>
+            <textarea id="new-comment" placeholder="Adicione um comentário..."></textarea>
+            <button onclick="addComment()">Adicionar Comentário</button>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
